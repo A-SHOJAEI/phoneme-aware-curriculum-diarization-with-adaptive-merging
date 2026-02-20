@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1_score,DER,JER,speaker_purity,phoneme_boundary_f1,num_samples,num_unique_speakers_pred,num_unique_speakers_true,avg_confidence
+0.0,0.0,0.0,0.0,100.0,100.0,0.05,1.0,100,1,45,0.029272528365254402

@@ -1,0 +1,48 @@
+# Default configuration for phoneme-aware curriculum diarization
+
+seed: 42
+experiment_name: phoneme_aware_diarization
+
+# Data configuration
+data:
+  data_dir: null
+  language: en
+  batch_size: 32
+  num_workers: 4
+  val_split: 0.1
+  test_split: 0.1
+  max_samples: 1000
+
+# Model configuration
+model:
+  input_dim: 80
+  embed_dim: 256
+  num_speakers: 100
+  speaker_layers: 3
+  phoneme_layers: 2
+  dropout: 0.1
+  use_adaptive_merging: true
+
+# Training configuration
+training:
+  num_epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  early_stopping_patience: 10
+  scheduler: cosine
+  use_amp: true
+  use_mlflow: false
+
+  # Loss weights
+  speaker_weight: 1.0
+  phoneme_weight: 0.5
+  boundary_weight: 0.3
+
+  # Curriculum learning
+  curriculum_stages: 3
+  stage_epochs: [10, 15, 25]
+
+# Checkpoint configuration
+checkpoint_dir: checkpoints
+save_frequency: 10

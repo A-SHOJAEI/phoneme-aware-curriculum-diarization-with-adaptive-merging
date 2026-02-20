@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.0,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1_score": 0.0,
+  "DER": 100.0,
+  "JER": 100.0,
+  "speaker_purity": 0.05,
+  "phoneme_boundary_f1": 1.0,
+  "num_samples": 100,
+  "num_unique_speakers_pred": 1,
+  "num_unique_speakers_true": 45,
+  "avg_confidence": 0.029272528365254402
+}
