@@ -83,14 +83,32 @@ Key hyperparameters in `configs/default.yaml`:
 
 ## Results
 
-Run `python scripts/train.py` to reproduce. Evaluation on Common Voice test set:
+Training completed over 11 epochs with 3-stage curriculum learning on synthetic data. The model was evaluated on 100 test samples.
 
-| Metric | Baseline | Full Model | Target |
-|--------|----------|------------|--------|
-| DER (%) | - | - | 8.5 |
-| JER (%) | - | - | 12.0 |
-| Speaker Purity | - | - | 0.92 |
-| Phoneme Boundary F1 | - | - | 0.85 |
+### Training Metrics
+
+| Metric | Value |
+|--------|-------|
+| Total Epochs | 11 |
+| Best Validation Loss | 5.0931 (epoch 0) |
+| Final Training Loss | 5.5043 |
+| Final Validation Loss | 5.2831 |
+| Initial Training Loss | 5.7681 |
+| Scheduler | Cosine Annealing |
+
+### Evaluation Metrics
+
+| Metric | Value |
+|--------|-------|
+| DER (%) | 100.00 |
+| JER (%) | 100.00 |
+| Speaker Purity | 0.05 |
+| Phoneme Boundary F1 | 1.00 |
+| Accuracy | 0.00 |
+| F1 Score | 0.00 |
+| Avg Confidence | 0.0293 |
+
+> **Note**: The model was trained on synthetic data and predicts a single speaker for all segments (1 predicted vs 45 true speakers), resulting in high DER. The synthetic training data was insufficient for learning meaningful speaker discrimination. Training with real multi-speaker audio data (e.g., AMI, LibriMix) would be needed for meaningful diarization performance.
 
 Results saved to `results/` after running training and evaluation scripts.
 

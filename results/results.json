@@ -1,0 +1,48 @@
+{
+  "experiment": "phoneme-aware-curriculum-diarization-with-adaptive-merging",
+  "status": "completed",
+  "training": {
+    "total_epochs": 11,
+    "best_epoch": 0,
+    "best_val_loss": 5.0931,
+    "final_train_loss": 5.5043,
+    "final_val_loss": 5.2831,
+    "initial_train_loss": 5.7681,
+    "initial_val_loss": 5.0931,
+    "learning_rate_initial": 0.001,
+    "learning_rate_final": 0.0008864,
+    "scheduler": "cosine",
+    "curriculum_stages": 3,
+    "stage_epochs": [10, 15, 25],
+    "loss_weights": {
+      "speaker": 1.0,
+      "phoneme": 0.5,
+      "boundary": 0.3
+    }
+  },
+  "model": {
+    "input_dim": 80,
+    "embed_dim": 256,
+    "num_speakers": 100,
+    "use_adaptive_merging": true
+  },
+  "evaluation": {
+    "DER": 100.0,
+    "JER": 100.0,
+    "speaker_purity": 0.05,
+    "phoneme_boundary_f1": 1.0,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "num_samples": 100,
+    "num_unique_speakers_pred": 1,
+    "num_unique_speakers_true": 45,
+    "avg_confidence": 0.0293
+  },
+  "training_history": {
+    "train_loss": [5.7681, 5.4903, 5.5857, 5.5501, 5.5471, 5.5271, 5.5144, 5.5249, 5.5098, 5.4857, 5.5043],
+    "val_loss": [5.0931, 5.2787, 5.3305, 5.3135, 5.2863, 5.2525, 5.3002, 5.2972, 5.2803, 5.2814, 5.2831]
+  },
+  "notes": "Training on synthetic data with curriculum learning. Model predicts single speaker for all segments, indicating the synthetic data was insufficient for learning meaningful speaker discrimination. The high DER and zero accuracy reflect this limitation."
+}
